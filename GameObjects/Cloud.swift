@@ -18,7 +18,7 @@ class Cloud : GameObject
     // LifeCycle Functions
     override func CheckBounds()
     {
-        if(position.y <= -756)
+        if(position.x <= -756)
         {
             Reset()
         }
@@ -27,19 +27,20 @@ class Cloud : GameObject
     override func Reset()
     {
         // randomize vertical speed
-        verticalSpeed = CGFloat((randomSource?.nextUniform())! * 5.0) + 5.0
+        horizontalSpeed = CGFloat((randomSource?.nextUniform())! * 5.0) + 5.0
         
         // randomize horizontal drift
-        horizontalSpeed = CGFloat((randomSource?.nextUniform())! * -4.0) + 2.0
+    
+        verticalSpeed = CGFloat((randomSource?.nextUniform())! * -4.0) + 2.0
         
         
         // get a pseudo random number -262 to 262
-        let randomX:Int = (randomSource?.nextInt(upperBound: 524))! - 262
-        position.x = CGFloat(randomX)
+        let randomY:Int = (randomSource?.nextInt(upperBound: 524))! - 262
+        position.y = CGFloat(randomY)
         
         // get a pseudo random number 756 to 776
-        let randomY:Int = (randomSource?.nextInt(upperBound: 20))! + 756
-        position.y = CGFloat(randomY)
+        let randomX:Int = (randomSource?.nextInt(upperBound: 20))! + 756
+        position.x = CGFloat(randomX)
         
         isCollding = false
     }

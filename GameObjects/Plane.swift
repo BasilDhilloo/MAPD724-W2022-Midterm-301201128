@@ -18,16 +18,16 @@ class Plane : GameObject
     
     override func CheckBounds()
     {
-        // constrain on the left boundary
-        if(position.x <= -310)
+        // constrain on the lower boundary
+        if(position.y <= -310)
         {
-            position.x = -310
+            position.y = -310
         }
         
-        // constrain on the right boundary
-        if(position.x >= 310)
+        // constrain on the top boundary
+        if(position.y >= 310)
         {
-            position.x = 310
+            position.y = 310
         }
     }
     
@@ -42,7 +42,7 @@ class Plane : GameObject
         CheckBounds()
     }
     
-    func Move(newPos: CGPoint)
+    func TouchMove(newPos: CGPoint)
     {
         position = newPos
     }
